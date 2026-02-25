@@ -16,7 +16,10 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#070707;
+background:#000;
+background-image:
+radial-gradient(circle at 20% 20%, rgba(212,175,55,0.15), transparent 40%),
+radial-gradient(circle at 80% 80%, rgba(212,175,55,0.15), transparent 40%);
 color:#fff;
 font-family:'Montserrat',sans-serif;
 overflow-x:hidden;
@@ -27,13 +30,13 @@ nav{
 position:fixed;
 top:0;
 width:100%;
-background:rgba(0,0,0,.95);
+background:#000;
 display:flex;
 justify-content:center;
 gap:40px;
 padding:20px 0;
 z-index:1000;
-border-bottom:1px solid rgba(212,175,55,.3);
+border-bottom:1px solid rgba(212,175,55,.4);
 }
 
 nav a{
@@ -57,7 +60,6 @@ flex-direction:column;
 align-items:center;
 justify-content:center;
 text-align:center;
-background:linear-gradient(135deg,#000,#111,#000);
 }
 
 header h1{
@@ -65,27 +67,17 @@ font-family:'Playfair Display',serif;
 font-size:60px;
 color:#D4AF37;
 margin-bottom:20px;
-animation:fadeDown 1.5s ease;
 }
 
 header p{
 font-size:20px;
 color:#ccc;
-animation:fadeUp 1.5s ease;
 }
 
 /* SECTIONS */
 .section{
 padding:120px 10%;
 text-align:center;
-opacity:0;
-transform:translateY(40px);
-transition:1s;
-}
-
-.section.show{
-opacity:1;
-transform:translateY(0);
 }
 
 .section h2{
@@ -107,13 +99,13 @@ background:#111;
 padding:40px 25px;
 border-radius:20px;
 border:1px solid rgba(212,175,55,.2);
-transition:.4s;
+transition:.3s;
 }
 
 .card:hover{
 transform:translateY(-10px);
 border:1px solid #D4AF37;
-box-shadow:0 15px 40px rgba(212,175,55,.2);
+box-shadow:0 15px 40px rgba(212,175,55,.3);
 }
 
 .card h3{
@@ -170,17 +162,6 @@ color:#777;
 font-size:14px;
 }
 
-/* ANIMATIONS */
-@keyframes fadeDown{
-from{opacity:0;transform:translateY(-40px);}
-to{opacity:1;transform:translateY(0);}
-}
-
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(40px);}
-to{opacity:1;transform:translateY(0);}
-}
-
 @media(max-width:768px){
 header h1{font-size:36px;}
 }
@@ -205,7 +186,7 @@ header h1{font-size:36px;}
 <div class="cards">
 <div class="card">
 <h3>Corte Profesional</h3>
-<p>Estilo personalizado con técnica de alto nivel y precisión.</p>
+<p>Estilo personalizado con técnica de alto nivel.</p>
 </div>
 <div class="card">
 <h3>Perfilado & Barba</h3>
@@ -242,7 +223,7 @@ header h1{font-size:36px;}
 <a class="btn" href="https://wa.me/56965119521">Reservar Estética</a>
 </section>
 
-<section id="ubicacion" class="location section">
+<section id="ubicacion" class="location">
 <h2>Ubicación</h2>
 <div class="location-box">
 📍 Veteranos del 79 #1175<br>
@@ -257,20 +238,6 @@ width="100%" height="300" style="border:0;border-radius:15px;">
 <footer>
 © 2026 Emesté Studio & Academy – Todos los derechos reservados
 </footer>
-
-<script>
-const sections = document.querySelectorAll('.section');
-
-window.addEventListener('scroll', ()=>{
-sections.forEach(section=>{
-const position = section.getBoundingClientRect().top;
-const screen = window.innerHeight;
-if(position < screen - 100){
-section.classList.add('show');
-}
-});
-});
-</script>
 
 </body>
 </html>
