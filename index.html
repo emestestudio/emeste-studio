@@ -15,8 +15,6 @@ background:#070707;
 color:#fff;
 font-family:'Montserrat',sans-serif;
 overflow-x:hidden;
-border:8px solid #D4AF37;
-box-shadow:inset 0 0 40px rgba(212,175,55,.4);
 }
 
 /* NAV */
@@ -24,7 +22,7 @@ nav{
 position:fixed;
 top:0;
 width:100%;
-background:rgba(0,0,0,.9);
+background:#000;
 display:flex;
 justify-content:center;
 gap:40px;
@@ -44,195 +42,120 @@ transition:.4s;
 
 nav a:hover{
 color:#fff;
-text-shadow:0 0 15px rgba(212,175,55,.9);
 }
 
 /* HEADER */
 header{
-height:95vh;
+height:100vh;
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
 text-align:center;
-background:url("hero.jpg") center 30%/cover no-repeat;
-position:relative;
-}
-
-header::after{
-content:"";
-position:absolute;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.75);
-}
-
-header .content{
-position:relative;
-z-index:2;
-animation:fadeUp 1.5s ease forwards;
-}
-
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(40px);}
-to{opacity:1;transform:translateY(0);}
+background:linear-gradient(135deg,#000,#111,#000);
 }
 
 h1{
 font-family:'Playfair Display',serif;
 font-size:60px;
-text-shadow:0 0 30px rgba(212,175,55,.9);
-animation:glow 3s infinite alternate;
-}
-
-@keyframes glow{
-from{text-shadow:0 0 15px rgba(212,175,55,.4);}
-to{text-shadow:0 0 35px rgba(212,175,55,1);}
+color:#D4AF37;
+margin-bottom:20px;
 }
 
 .slogan{
-margin-top:20px;
-color:#D4AF37;
 font-size:20px;
 letter-spacing:1px;
-animation:fadeIn 2s ease forwards;
+color:#ccc;
 }
 
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
-}
-
-/* SECCIONES */
+/* SECTIONS */
 .section{
-padding:120px 8%;
+padding:120px 10%;
 text-align:center;
-animation:fadeUp 1.5s ease forwards;
 }
 
 .section h2{
 font-family:'Playfair Display',serif;
 color:#D4AF37;
-margin-bottom:50px;
+margin-bottom:40px;
 font-size:34px;
 }
 
-/* BARBERÍA */
-.gallery-barber{
+.card-container{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:40px;
-justify-items:center;
 }
 
-.gallery-barber img{
-width:100%;
-max-width:280px;
-height:350px;
-object-fit:cover;
+.card{
+background:#111;
+padding:40px 20px;
 border-radius:20px;
-box-shadow:0 20px 60px rgba(0,0,0,.8);
-transition:.5s;
+border:1px solid rgba(212,175,55,.3);
+transition:.4s;
 }
 
-.gallery-barber img:hover{
-transform:scale(1.07);
-box-shadow:0 25px 70px rgba(212,175,55,.6);
+.card:hover{
+transform:translateY(-10px);
+border-color:#D4AF37;
 }
 
-/* ESTÉTICA */
-.gallery-estetica{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:40px;
-justify-items:center;
-}
-
-.gallery-estetica img{
-width:100%;
-max-width:420px;
-height:auto;
-object-fit:contain;
-border-radius:20px;
-box-shadow:0 20px 60px rgba(0,0,0,.8);
-transition:.5s;
-}
-
-.gallery-estetica img:hover{
-transform:scale(1.05);
-box-shadow:0 25px 70px rgba(212,175,55,.6);
-}
-
-/* LOCAL */
-.local{
-display:flex;
-justify-content:center;
-padding:100px 0;
-}
-
-.local img{
-width:600px;
-height:600px;
-object-fit:cover;
-border-radius:25px;
-box-shadow:0 40px 90px rgba(0,0,0,.9);
-transition:.6s;
-}
-
-.local img:hover{
-transform:scale(1.03);
-}
-
-/* UBICACIÓN */
-.location-box{
+.card h3{
 color:#D4AF37;
-font-weight:600;
-margin-bottom:20px;
+margin-bottom:15px;
 }
 
-/* BOTONES FLOTANTES */
-.floating{
-position:fixed;
-right:30px;
-bottom:30px;
-display:flex;
-flex-direction:column;
-gap:20px;
-z-index:1000;
+.card p{
+color:#ccc;
+line-height:1.6;
 }
 
-.float-btn{
-background:linear-gradient(135deg,#D4AF37,#000);
-color:#fff;
-padding:18px 30px;
+/* CTA */
+.cta{
+background:#111;
+padding:100px 10%;
+}
+
+.btn{
+display:inline-block;
+margin-top:30px;
+background:#D4AF37;
+color:#000;
+padding:15px 35px;
 border-radius:50px;
 font-weight:700;
 text-decoration:none;
-border:1px solid #D4AF37;
 transition:.4s;
-box-shadow:0 0 20px rgba(212,175,55,.7);
-animation:pulse 3s infinite;
 }
 
-.float-btn:hover{
-background:#D4AF37;
-color:#000;
-transform:translateY(-5px) scale(1.05);
-box-shadow:0 0 35px rgba(212,175,55,1);
+.btn:hover{
+background:#fff;
 }
 
-@keyframes pulse{
-0%{box-shadow:0 0 15px rgba(212,175,55,.4);}
-50%{box-shadow:0 0 30px rgba(212,175,55,.9);}
-100%{box-shadow:0 0 15px rgba(212,175,55,.4);}
+/* LOCATION */
+.location{
+background:#000;
+padding:100px 10%;
+}
+
+.location-box{
+color:#D4AF37;
+margin-bottom:30px;
+font-weight:600;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:40px;
+background:#000;
+color:#777;
+font-size:14px;
 }
 
 @media(max-width:768px){
 h1{font-size:36px;}
-.local img{width:90%;height:auto;aspect-ratio:1/1;}
-body{border-width:5px;}
 }
-
 </style>
 </head>
 
@@ -245,35 +168,54 @@ body{border-width:5px;}
 </nav>
 
 <header>
-<div class="content">
 <h1>Emesté Studio & Academy</h1>
 <div class="slogan">Tu esencia, reflejada en tu imagen.</div>
-</div>
 </header>
 
 <section id="barberia" class="section">
-<h2>Barbería</h2>
-<div class="gallery-barber">
-<img src="barber1.jpg">
-<img src="barber2.jpg">
-<img src="barber3.jpg">
+<h2>Barbería Premium</h2>
+<div class="card-container">
+<div class="card">
+<h3>Corte & Perfilado</h3>
+<p>Estilo personalizado con técnica profesional y acabados de alto nivel.</p>
+</div>
+<div class="card">
+<h3>Barba & Diseño</h3>
+<p>Definición, simetría y elegancia en cada detalle.</p>
+</div>
+<div class="card">
+<h3>Experiencia VIP</h3>
+<p>Ambiente exclusivo y atención premium.</p>
+</div>
 </div>
 </section>
 
 <section id="estetica" class="section">
-<h2>Estética</h2>
-<div class="gallery-estetica">
-<img src="estetica1.jpg">
-<img src="estetica2.jpg">
-<img src="estetica3.jpg">
+<h2>Estética Avanzada</h2>
+<div class="card-container">
+<div class="card">
+<h3>Ácido Hialurónico</h3>
+<p>Armonización facial con resultados naturales.</p>
+</div>
+<div class="card">
+<h3>Botox</h3>
+<p>Rejuvenecimiento y frescura sin perder expresión.</p>
+</div>
+<div class="card">
+<h3>Skin Booster</h3>
+<p>Hidratación profunda y luminosidad inmediata.</p>
+</div>
 </div>
 </section>
 
-<section class="local">
-<img src="local.jpg">
+<section class="cta">
+<h2>Agenda tu cita hoy</h2>
+<a class="btn" href="https://wa.me/56982328639">Reservar Barbería</a>
+<br>
+<a class="btn" href="https://wa.me/56965119521">Reservar Estética</a>
 </section>
 
-<section id="ubicacion" class="section">
+<section id="ubicacion" class="location">
 <h2>Ubicación</h2>
 <div class="location-box">
 📍 Veteranos del 79 #1175<br>
@@ -285,10 +227,9 @@ width="100%" height="300" style="border:0;border-radius:15px;">
 </iframe>
 </section>
 
-<div class="floating">
-<a class="float-btn" href="https://wa.me/56982328639">Reservar Barbería</a>
-<a class="float-btn" href="https://wa.me/56965119521">Reservar Estética</a>
-</div>
+<footer>
+© 2026 Emesté Studio & Academy – Todos los derechos reservados
+</footer>
 
 </body>
 </html>
