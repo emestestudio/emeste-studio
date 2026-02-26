@@ -12,6 +12,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
@@ -39,6 +40,11 @@ text-decoration:none;
 margin:0 30px;
 font-weight:500;
 letter-spacing:1px;
+transition:0.3s;
+}
+
+nav a:hover{
+opacity:0.7;
 }
 
 /* HERO */
@@ -51,25 +57,36 @@ display:flex;
 justify-content:center;
 align-items:flex-start;
 text-align:center;
-padding-top:600px; /* MÁS ABAJO TODAVÍA */
+padding-top:600px;
+animation:fadeIn 2s ease forwards;
 }
 
 .hero h1{
 font-family:'Playfair Display', serif;
 font-size:4rem;
 color:#D4AF37;
+animation:slideDown 1.5s ease forwards;
 }
 
 .hero p{
 margin-top:20px;
 font-size:1.2rem;
 color:#ddd;
+animation:fadeUp 2s ease forwards;
 }
 
 /* SECCIONES */
 .section{
 padding:120px 20px;
 text-align:center;
+opacity:0;
+transform:translateY(50px);
+transition:1s ease;
+}
+
+.section.visible{
+opacity:1;
+transform:translateY(0);
 }
 
 .section h2{
@@ -93,14 +110,14 @@ width:100%;
 height:350px;
 object-fit:cover;
 border-radius:15px;
-transition:0.5s;
+transition:0.6s;
 }
 
 .gallery img:hover{
-transform:scale(1.05);
+transform:scale(1.08);
 }
 
-/* SEGUNDA IMAGEN ESTÉTICA COMPLETA */
+/* SEGUNDA IMAGEN COMPLETA */
 .estetica-completa{
 object-fit:contain !important;
 background:#000;
@@ -116,9 +133,14 @@ color:#000;
 text-decoration:none;
 border-radius:30px;
 font-weight:600;
+transition:0.3s;
 }
 
-/* BOTONES WHATSAPP FLOTANTES */
+.map-link:hover{
+transform:scale(1.05);
+}
+
+/* WHATSAPP */
 .whatsapp-container{
 position:fixed;
 right:20px;
@@ -126,7 +148,7 @@ bottom:20px;
 display:flex;
 flex-direction:column;
 gap:15px;
-z-index:5000; /* MÁS ALTO PARA QUE SE VEAN */
+z-index:5000;
 }
 
 .whatsapp-btn{
@@ -136,6 +158,7 @@ text-decoration:none;
 font-weight:600;
 color:#fff;
 box-shadow:0 0 15px rgba(0,0,0,0.4);
+animation:pulse 2.5s infinite;
 }
 
 .whatsapp-barber{
@@ -147,12 +170,35 @@ background:#D4AF37;
 color:#000;
 }
 
+/* FOOTER */
 footer{
 padding:30px;
 text-align:center;
 background:#111;
 color:#aaa;
 font-size:0.9rem;
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+@keyframes slideDown{
+from{opacity:0; transform:translateY(-40px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes fadeUp{
+from{opacity:0; transform:translateY(40px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 10px rgba(0,0,0,0.4);}
+50%{box-shadow:0 0 25px rgba(0,0,0,0.8);}
+100%{box-shadow:0 0 10px rgba(0,0,0,0.4);}
 }
 
 @media(max-width:768px){
@@ -203,7 +249,7 @@ font-size:2.5rem;
 <h2>Ubicación</h2>
 <p>Veteranos del 79 1175, Villa Alemana</p>
 
-<a href="https://maps.app.goo.gl/VAvTENn1RH8JN1Ue8"
+<a href="https://www.google.com/maps/dir/?api=1&destination=Veteranos+del+79+1175,+Villa+Alemana"
 target="_blank"
 class="map-link">
 Abrir ubicación en Google Maps
@@ -211,15 +257,11 @@ Abrir ubicación en Google Maps
 </section>
 
 <div class="whatsapp-container">
-<a href="https://wa.me/56982328639"
-target="_blank"
-class="whatsapp-btn whatsapp-barber">
+<a href="https://wa.me/56982328639" target="_blank" class="whatsapp-btn whatsapp-barber">
 WhatsApp Barbería
 </a>
 
-<a href="https://wa.me/56965119521"
-target="_blank"
-class="whatsapp-btn whatsapp-estetica">
+<a href="https://wa.me/56965119521" target="_blank" class="whatsapp-btn whatsapp-estetica">
 WhatsApp Estética
 </a>
 </div>
@@ -227,6 +269,20 @@ WhatsApp Estética
 <footer>
 © 2026 Emesté Studio & Academy - Todos los derechos reservados
 </footer>
+
+<script>
+const sections = document.querySelectorAll('.section');
+
+window.addEventListener('scroll', () => {
+sections.forEach(section => {
+const sectionTop = section.getBoundingClientRect().top;
+const trigger = window.innerHeight - 100;
+if(sectionTop < trigger){
+section.classList.add('visible');
+}
+});
+});
+</script>
 
 </body>
 </html>
