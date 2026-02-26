@@ -28,7 +28,7 @@ position:fixed;
 width:100%;
 top:0;
 background:rgba(0,0,0,0.9);
-padding:20px 0;
+padding:15px 0;
 text-align:center;
 z-index:999;
 border-bottom:1px solid rgba(212,175,55,0.3);
@@ -37,14 +37,10 @@ border-bottom:1px solid rgba(212,175,55,0.3);
 nav a{
 color:#D4AF37;
 text-decoration:none;
-margin:0 30px;
+margin:0 15px;
 font-weight:500;
 letter-spacing:1px;
-transition:0.3s;
-}
-
-nav a:hover{
-opacity:0.7;
+font-size:14px;
 }
 
 /* HERO */
@@ -57,41 +53,30 @@ display:flex;
 justify-content:center;
 align-items:flex-start;
 text-align:center;
-padding-top:600px;
-animation:fadeIn 2s ease forwards;
+padding-top:550px;
 }
 
 .hero h1{
 font-family:'Playfair Display', serif;
-font-size:4rem;
+font-size:3.5rem;
 color:#D4AF37;
-animation:slideDown 1.5s ease forwards;
 }
 
 .hero p{
-margin-top:20px;
-font-size:1.2rem;
+margin-top:15px;
+font-size:1.1rem;
 color:#ddd;
-animation:fadeUp 2s ease forwards;
 }
 
 /* SECCIONES */
 .section{
-padding:120px 20px;
+padding:100px 20px;
 text-align:center;
-opacity:0;
-transform:translateY(50px);
-transition:1s ease;
-}
-
-.section.visible{
-opacity:1;
-transform:translateY(0);
 }
 
 .section h2{
 font-family:'Playfair Display', serif;
-font-size:2.5rem;
+font-size:2rem;
 margin-bottom:40px;
 color:#D4AF37;
 }
@@ -99,25 +84,20 @@ color:#D4AF37;
 /* GALERÍA */
 .gallery{
 display:grid;
-grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
-gap:30px;
+grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+gap:20px;
 max-width:1200px;
 margin:0 auto;
 }
 
 .gallery img{
 width:100%;
-height:350px;
+height:300px;
 object-fit:cover;
-border-radius:15px;
-transition:0.6s;
+border-radius:12px;
 }
 
-.gallery img:hover{
-transform:scale(1.08);
-}
-
-/* SEGUNDA IMAGEN COMPLETA */
+/* Segunda imagen estética completa */
 .estetica-completa{
 object-fit:contain !important;
 background:#000;
@@ -125,40 +105,34 @@ background:#000;
 
 /* BOTÓN MAPA */
 .map-link{
-margin-top:30px;
+margin-top:25px;
 display:inline-block;
-padding:15px 30px;
+padding:12px 25px;
 background:#D4AF37;
 color:#000;
 text-decoration:none;
 border-radius:30px;
 font-weight:600;
-transition:0.3s;
 }
 
-.map-link:hover{
-transform:scale(1.05);
-}
-
-/* WHATSAPP */
+/* WHATSAPP FLOTANTE */
 .whatsapp-container{
 position:fixed;
-right:20px;
-bottom:20px;
+right:15px;
+bottom:15px;
 display:flex;
 flex-direction:column;
-gap:15px;
+gap:10px;
 z-index:5000;
 }
 
 .whatsapp-btn{
-padding:15px 25px;
-border-radius:50px;
+padding:12px 20px;
+border-radius:40px;
 text-decoration:none;
 font-weight:600;
+font-size:14px;
 color:#fff;
-box-shadow:0 0 15px rgba(0,0,0,0.4);
-animation:pulse 2.5s infinite;
 }
 
 .whatsapp-barber{
@@ -172,42 +146,46 @@ color:#000;
 
 /* FOOTER */
 footer{
-padding:30px;
+padding:25px;
 text-align:center;
 background:#111;
 color:#aaa;
-font-size:0.9rem;
+font-size:0.8rem;
 }
 
-/* ANIMACIONES */
-@keyframes fadeIn{
-from{opacity:0;}
-to{opacity:1;}
-}
-
-@keyframes slideDown{
-from{opacity:0; transform:translateY(-40px);}
-to{opacity:1; transform:translateY(0);}
-}
-
-@keyframes fadeUp{
-from{opacity:0; transform:translateY(40px);}
-to{opacity:1; transform:translateY(0);}
-}
-
-@keyframes pulse{
-0%{box-shadow:0 0 10px rgba(0,0,0,0.4);}
-50%{box-shadow:0 0 25px rgba(0,0,0,0.8);}
-100%{box-shadow:0 0 10px rgba(0,0,0,0.4);}
-}
-
+/* 📱 RESPONSIVE MÓVIL */
 @media(max-width:768px){
+
 .hero{
-padding-top:350px;
+padding-top:320px;
+height:90vh;
 }
+
 .hero h1{
-font-size:2.5rem;
+font-size:2rem;
+padding:0 15px;
 }
+
+.hero p{
+font-size:0.9rem;
+padding:0 15px;
+}
+
+nav a{
+display:inline-block;
+margin:5px 10px;
+font-size:13px;
+}
+
+.gallery img{
+height:250px;
+}
+
+.whatsapp-btn{
+font-size:12px;
+padding:10px 15px;
+}
+
 }
 </style>
 </head>
@@ -258,31 +236,17 @@ Abrir ubicación en Google Maps
 
 <div class="whatsapp-container">
 <a href="https://wa.me/56982328639" target="_blank" class="whatsapp-btn whatsapp-barber">
-WhatsApp Barbería
+Barbería
 </a>
 
 <a href="https://wa.me/56965119521" target="_blank" class="whatsapp-btn whatsapp-estetica">
-WhatsApp Estética
+Estética
 </a>
 </div>
 
 <footer>
 © 2026 Emesté Studio & Academy - Todos los derechos reservados
 </footer>
-
-<script>
-const sections = document.querySelectorAll('.section');
-
-window.addEventListener('scroll', () => {
-sections.forEach(section => {
-const sectionTop = section.getBoundingClientRect().top;
-const trigger = window.innerHeight - 100;
-if(sectionTop < trigger){
-section.classList.add('visible');
-}
-});
-});
-</script>
 
 </body>
 </html>
